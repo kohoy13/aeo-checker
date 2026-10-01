@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="ko">
-<head>
+<html lang="ko"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0B0E13">
@@ -9,12 +8,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="AEO 계측기">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMDQiIGZpbGw9IiMwQjBFMTMiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNUFCNEZGIiBzdHJva2Utd2lkdGg9IjIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiPgo8cGF0aCBkPSJNMTUwIDM2MiBBMTUwIDE1MCAwIDAgMSAzNjIgMTUwIi8+CjxwYXRoIGQ9Ik0xOTYgMzYyIEExMDQgMTA0IDAgMCAxIDM2MiAxOTYiIHN0cm9rZT0iIzM1RDZBNCIvPgo8cGF0aCBkPSJNMjQyIDM2MiBBNTggNTggMCAwIDEgMzYyIDI0MiIgc3Ryb2tlPSIjRThBMzNEIi8+CjwvZz4KPGNpcmNsZSBjeD0iMTUwIiBjeT0iMzYyIiByPSIzMCIgZmlsbD0iIzVBQjRGRiIvPgo8L3N2Zz4=">
-<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMDQiIGZpbGw9IiMwQjBFMTMiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNUFCNEZGIiBzdHJva2Utd2lkdGg9IjIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiPgo8cGF0aCBkPSJNMTUwIDM2MiBBMTUwIDE1MCAwIDAgMSAzNjIgMTUwIi8+CjxwYXRoIGQ9Ik0xOTYgMzYyIEExMDQgMTA0IDAgMCAxIDM2MiAxOTYiIHN0cm9rZT0iIzM1RDZBNCIvPgo8cGF0aCBkPSJNMjQyIDM2MiBBNTggNTggMCAwIDEgMzYyIDI0MiIgc3Ryb2tlPSIjRThBMzNEIi8+CjwvZz4KPGNpcmNsZSBjeD0iMTUwIiBjeT0iMzYyIiByPSIzMCIgZmlsbD0iIzVBQjRGRiIvPgo8L3N2Zz4=">
-<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIu2BrOuhpOufrCDqsIDsi5zshLEg6rOE7Lih6riwIiwgInNob3J0X25hbWUiOiAiQUVPIOqzhOy4oeq4sCIsICJkZXNjcmlwdGlvbiI6ICJBSSDtgazroaTrn6zqsIAg7Ju57Y6Y7J207KeA7JeQ7IScIOustOyXh+ydhCDqsIDsoLjqsIDripTsp4Ag7Lih7KCV7ZWp64uI64ukIiwgInN0YXJ0X3VybCI6ICIuLyIsICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLCAiYmFja2dyb3VuZF9jb2xvciI6ICIjMEIwRTEzIiwgInRoZW1lX2NvbG9yIjogIiMwQjBFMTMiLCAibGFuZyI6ICJrbyIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBMU1USWdOVEV5SWo0S1BISmxZM1FnZDJsa2RHZzlJalV4TWlJZ2FHVnBaMmgwUFNJMU1USWlJSEo0UFNJeE1EUWlJR1pwYkd3OUlpTXdRakJGTVRNaUx6NEtQR2NnWm1sc2JEMGlibTl1WlNJZ2MzUnliMnRsUFNJak5VRkNORVpHSWlCemRISnZhMlV0ZDJsa2RHZzlJakl5SWlCemRISnZhMlV0YkdsdVpXTmhjRDBpY205MWJtUWlQZ284Y0dGMGFDQmtQU0pOTVRVd0lETTJNaUJCTVRVd0lERTFNQ0F3SURBZ01TQXpOaklnTVRVd0lpOCtDanh3WVhSb0lHUTlJazB4T1RZZ016WXlJRUV4TURRZ01UQTBJREFnTUNBeElETTJNaUF4T1RZaUlITjBjbTlyWlQwaUl6TTFSRFpCTkNJdlBnbzhjR0YwYUNCa1BTSk5NalF5SURNMk1pQkJOVGdnTlRnZ01DQXdJREVnTXpZeUlESTBNaUlnYzNSeWIydGxQU0lqUlRoQk16TkVJaTgrQ2p3dlp6NEtQR05wY21Oc1pTQmplRDBpTVRVd0lpQmplVDBpTXpZeUlpQnlQU0l6TUNJZ1ptbHNiRDBpSXpWQlFqUkdSaUl2UGdvOEwzTjJaejQ9IiwgInNpemVzIjogIjUxMng1MTIiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIn1dfQ==">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMDQiIGZpbGw9IiMwQjBFMTMiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNUFCNEZGIiBzdHJva2Utd2lkdGg9IjIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiPgo8cGF0aCBkPSJNMTUwIDM2MiBBMTUwIDE1MCAwIDAgMSAzNjIgMTUwIi8+CjxwYXRoIGQ9Ik0xOTYgMzYyIEExMDQgMTA0IDAgMCAxIDM2MiAxOTYiIHN0cm9rZT0iIzM1RDZBNCIvPgo8cGF0aCBkPSJNMjQyIDM2MiBBNTggNTggMCAwIDEgMzYyIDI0MiIgc3Ryb2tlPSIjRThBMzNEIi8+CjwvZz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIzNjIiIHI9IjMwIiBmaWxsPSIjNUFCNEZGIi8+PC9zdmc+">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMDQiIGZpbGw9IiMwQjBFMTMiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNUFCNEZGIiBzdHJva2Utd2lkdGg9IjIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiPgo8cGF0aCBkPSJNMTUwIDM2MiBBMTUwIDE1MCAwIDAgMSAzNjIgMTUwIi8+CjxwYXRoIGQ9Ik0xOTYgMzYyIEExMDQgMTA0IDAgMCAxIDM2MiAxOTYiIHN0cm9rZT0iIzM1RDZBNCIvPgo8cGF0aCBkPSJNMjQyIDM2MiBBNTggNTggMCAwIDEgMzYyIDI0MiIgc3Ryb2tlPSIjRThBMzNEIi8+CjwvZz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIzNjIiIHI9IjMwIiBmaWxsPSIjNUFCNEZGIi8+PC9zdmc+">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIu2BrOuhpOufrCDqsIDsi5zshLEg6rOE7Lih6riwIiwgInNob3J0X25hbWUiOiAiQUVPIOqzhOy4oeq4sCIsICJkZXNjcmlwdGlvbiI6ICJBSSDtgazroaTrn6zqsIAg7Ju57Y6Y7J207KeA7JeQ7IScIOustOyXh+ydhCDqsIDsoLjqsIDripTsp4Ag7Lih7KCV7ZWp64uI64ukIiwgInN0YXJ0X3VybCI6ICIuLyIsICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLCAiYmFja2dyb3VuZF9jb2xvciI6ICIjMEIwRTEzIiwgInRoZW1lX2NvbG9yIjogIiMwQjBFMTMiLCAibGFuZyI6ICJrbyIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBMU1USWdOVEV5SWo0S1BISmxZM1FnZDJsa2RHZzlJalV4TWlJZ2FHVnBaMmgwUFNJMU1USWlJSEo0UFNJeE1EUWlJR1pwYkd3OUlpTXdRakJGTVRNaUx6NEtQR2NnWm1sc2JEMGlibTl1WlNJZ2MzUnliMnRsUFNJak5VRkNORVpHSWlCemRISnZhMlV0ZDJsa2RHZzlJakl5SWlCemRISnZhMlV0YkdsdVpXTmhjRDBpY205MWJtUWlQZ284Y0dGMGFDQmtQU0pOTVRVd0lETTJNaUJCTVRVd0lERTFNQ0F3SURBZ01TQXpOaklnTVRVd0lpOCtDanh3WVhSb0lHUTlJazB4T1RZZ016WXlJRUV4TURRZ01UQTBJREFnTUNBeElETTJNaUF4T1RZaUlITjBjbTlyWlQwaUl6TTFSRFpCTkNJdlBnbzhjR0YwYUNCa1BTSk5NalF5SURNMk1pQkJOVGdnTlRnZ01DQXdJREVnTXpZeUlESTBNaUlnYzNSeWIydGxQU0lqUlRoQk16TkVJaTgrQ2p3dlp6NDhZMmx5WTJ4bElHTjRQU0l4TlRBaUlHTjVQU0l6TmpJaUlISTlJak13SWlCbWFXeHNQU0lqTlVGQ05FWkdJaTgrUEM5emRtYysiLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiLCAicHVycG9zZSI6ICJhbnkgbWFza2FibGUifV19">
 <style>html{background:#0B0E13}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-</head>
-<body>
+</head><body>
 <title>크롤러 가시성 계측기</title>
 <style>
 :root{
@@ -54,7 +52,8 @@ textarea{min-height:90px}
 textarea.big{min-height:150px}
 input:focus,textarea:focus{outline:2px solid var(--probe);outline-offset:-1px;border-color:transparent}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-@media(max-width:780px){.grid2{grid-template-columns:1fr}}
+@media(max-width:780px){.grid2{grid-template-columns:1fr}
+  .howgrid{grid-template-columns:1fr!important}}
 .acts{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px}
 button{font-family:var(--sans);font-size:13.5px;font-weight:600;border-radius:9px;
   padding:10px 22px;cursor:pointer;border:1px solid transparent}
@@ -189,59 +188,92 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding:22px 0 0;
 
 <div class="wrap">
 
+<div class="console" style="border-color:var(--probe)">
+  <h2 style="color:var(--probe)">휴대폰에 앱으로 설치하기</h2>
+  <p class="sub" style="margin-bottom:13px">전체화면으로 뜨는 설치판이 따로 있습니다.
+  <b>아래 주소를 휴대폰에서 열고</b> 홈 화면에 추가하세요.</p>
+  <div class="fld">
+    <label>설치용 주소</label>
+    <input type="text" id="appUrl" readonly value="(주소를 불러오는 중)"
+      style="color:var(--probe)" onclick="this.select()">
+  </div>
+  <div class="tw"><table>
+    <tr><td class="k">아이폰</td><td>사파리로 열기 → 아래 가운데 <b>공유</b> 단추 →
+      목록 내려 <b>홈 화면에 추가</b></td></tr>
+    <tr><td class="k">안드로이드</td><td>크롬으로 열기 → 오른쪽 위 <b>점 세 개</b> →
+      <b>앱 설치</b> (런처에 진짜 설치됩니다)</td></tr>
+  </table></div>
+  <div class="note">설치판은 <b>인터넷 없이도 돕니다.</b> 바깥에서 받아오는 것이 하나도 없습니다.
+  <a href="app.html" style="color:var(--probe)">지금 열어 보기 →</a></div>
+</div>
+
 <div class="console">
-  <h2>측정값 넣기</h2>
-  <p class="sub">이 쪽은 브라우저 안에서만 돕니다. 바깥으로 주소를 부를 수 없어 <b>소스를 직접 넣습니다.</b>
-  넣은 내용은 어디에도 올라가지 않습니다.</p>
+  <h2>쓰는 법 — 두 번 누르면 끝</h2>
+  <p class="sub">브라우저는 보안 규칙 때문에 <b>다른 사이트의 내용을 읽지 못합니다.</b>
+  그래서 <b>검사할 쪽 위에서</b> 한 번 눌러 모아 온 뒤, 여기서 받습니다.</p>
 
-  <div class="fld">
-    <label for="iUrl">검사할 주소 <span class="opt">— canonical·사이트맵 대조에 씁니다</span></label>
-    <input id="iUrl" type="text" placeholder="https://www.example.com/path?code=ABC123">
-  </div>
-
-  <div class="fld">
-    <label for="iHtml">원본 HTML <span class="opt">— 반드시 필요합니다</span></label>
-    <textarea id="iHtml" class="big" placeholder="여기에 붙여넣으세요"></textarea>
-  </div>
-
-  <div class="grid2">
-    <div class="fld">
-      <label for="iRobots">robots.txt <span class="opt">— 선택</span></label>
-      <textarea id="iRobots" placeholder="User-agent: *&#10;Disallow: /"></textarea>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px" class="howgrid">
+    <div style="background:var(--panel2);border:1px solid var(--line2);border-radius:10px;padding:14px">
+      <div style="font-family:var(--mono);font-size:10.5px;color:var(--probe);letter-spacing:.1em;margin-bottom:6px">STEP 1</div>
+      <div style="font-weight:600;font-size:13.5px;margin-bottom:5px">검사할 쪽에서 북마크 실행</div>
+      <div style="font-size:12.3px;color:var(--dim)">그 쪽의 <b>서버 원본 HTML</b> · robots.txt ·
+      sitemap.xml 을 한 번에 모아 클립보드에 넣습니다.</div>
     </div>
-    <div class="fld">
-      <label for="iSitemap">sitemap.xml <span class="opt">— 선택</span></label>
-      <textarea id="iSitemap" placeholder="&lt;urlset&gt;&lt;url&gt;&lt;loc&gt;...&lt;/loc&gt;&lt;/url&gt;&lt;/urlset&gt;"></textarea>
+    <div style="background:var(--panel2);border:1px solid var(--line2);border-radius:10px;padding:14px">
+      <div style="font-family:var(--mono);font-size:10.5px;color:var(--probe);letter-spacing:.1em;margin-bottom:6px">STEP 2</div>
+      <div style="font-weight:600;font-size:13.5px;margin-bottom:5px">여기서 ‘붙여넣기’ 누르기</div>
+      <div style="font-size:12.3px;color:var(--dim)">끝입니다. 주소 · robots · 사이트맵까지
+      알아서 갈라서 읽습니다.</div>
     </div>
   </div>
 
-  <div class="fld">
-    <label for="iRender">브라우저가 그린 HTML <span class="opt">— 선택 · 넣으면 서버/클라이언트 생성을 가릅니다</span></label>
-    <textarea id="iRender" placeholder="개발자도구 콘솔에서 copy(document.documentElement.outerHTML)"></textarea>
+  <div class="acts" style="margin-top:0">
+    <button class="go" id="bClip">클립보드에서 붙여넣기</button>
+    <button class="ghost" id="bSample">예시로 보기</button>
+    <button class="ghost" id="bManual">직접 넣기</button>
   </div>
 
-  <div class="acts">
-    <button class="go" id="bGo">측정</button>
-    <button class="ghost" id="bSample">예시 넣기</button>
-    <button class="ghost" id="bClear">비우기</button>
+  <div id="manual" class="hide" style="margin-top:14px">
+    <div class="fld">
+      <label for="iUrl">검사할 주소 <span class="opt">— 적어 두면 사이트맵·canonical 대조에 씁니다</span></label>
+      <input id="iUrl" type="text" placeholder="https://www.example.com/path?code=ABC123">
+    </div>
+    <div class="fld">
+      <label for="iPaste">소스 <span class="opt">— HTML · robots.txt · sitemap.xml 아무거나 이어서</span></label>
+      <textarea id="iPaste" class="big" placeholder="여기에 붙여넣으세요"></textarea>
+      <div id="chips" style="margin-top:9px;display:flex;gap:7px;flex-wrap:wrap"></div>
+    </div>
+    <div class="acts"><button class="go" id="bGo">측정</button>
+      <button class="ghost" id="bClear">비우기</button></div>
   </div>
 
-  <details class="how">
-    <summary>소스를 어떻게 가져오나</summary>
+  <details class="how" open>
+    <summary>북마크 넣기 (처음 한 번만)</summary>
     <div class="body">
-      <p style="margin:0 0 9px"><b style="color:var(--ink)">원본 HTML</b> — 봇이 받는 것과 같아야 하므로
-      <b style="color:var(--ink)">브라우저로 그린 화면이 아니라 서버 응답</b>을 가져옵니다.</p>
-      <p style="margin:0 0 6px">터미널에서 —</p>
-      <p style="margin:0 0 9px"><code>curl -sL -A "Mozilla/5.0" "주소" | pbcopy</code></p>
-      <p style="margin:0 0 9px">또는 브라우저 주소창에 <code>view-source:주소</code> 를 넣고 전체 복사.</p>
-      <p style="margin:0 0 6px"><b style="color:var(--ink)">robots.txt · sitemap.xml</b> —
-      <code>도메인/robots.txt</code>, <code>도메인/sitemap.xml</code> 을 열어 복사.</p>
-      <p style="margin:9px 0 0"><b style="color:var(--ink)">브라우저가 그린 HTML</b> — 그 쪽을 열고
-      개발자도구 콘솔에 <code>copy(document.documentElement.outerHTML)</code>.</p>
+      <p style="margin:0 0 10px"><b style="color:var(--ink)">아이폰 · 아이패드</b></p>
+      <ol style="margin:0 0 14px;padding-left:20px;font-size:12.5px;line-height:1.9">
+        <li>아래 <b>북마크 코드 복사</b> 를 누릅니다</li>
+        <li>사파리에서 아무 쪽이나 열고 <b>공유 → 책갈피 추가</b>, 이름을 <b>AEO 채집</b> 으로 저장</li>
+        <li><b>책갈피 → 편집</b> 에서 그 항목을 고르고, 주소 칸을 지운 뒤 <b>붙여넣기</b></li>
+        <li>검사할 쪽에서 <b>책갈피 → AEO 채집</b> 을 누르면 모아집니다</li>
+      </ol>
+      <p style="margin:0 0 10px"><b style="color:var(--ink)">맥 · 윈도우</b> — 북마크바에 새 북마크를 만들고
+      주소 칸에 붙여넣으면 됩니다.</p>
+      <div class="acts" style="margin-top:0">
+        <button class="go" id="bBm" style="padding:9px 18px;font-size:13px">북마크 코드 복사</button>
+        <button class="ghost" id="bBmShow" style="padding:9px 16px;font-size:13px">코드 보기</button>
+      </div>
+      <textarea id="bmText" class="hide" style="margin-top:11px;min-height:90px"
+        readonly onclick="this.select()"></textarea>
+      <p style="margin:12px 0 0;color:var(--caution)">⚠ 북마크가 안 되는 환경이면
+      <b>직접 넣기</b> 를 눌러 소스를 붙여넣어도 됩니다.
+      그때는 <code>view-source:주소</code> 로 원본을 보세요. 개발자도구의
+      <code>outerHTML</code> 은 JS 가 돌아간 뒤라 쓰면 안 됩니다.</p>
     </div>
   </details>
 </div>
 
+<textarea id="bmSrc" class="hide" aria-hidden="true">javascript:(async%20function(){var%20%EC%95%8C%EB%A6%BC%20=%20function(%EA%B8%80,%20%EC%83%89){var%20d%20=%20document.getElementById(%22__aeo_toast%22)%20||%20document.createElement(%22div%22);d.id%20=%20%22__aeo_toast%22;d.style.cssText%20=%20%22position:fixed;left:50%25;bottom:28px;transform:translateX(-50%25);%22+%20%22z-index:2147483647;background:%22%20+%20(%EC%83%89||%22#12254a%22)%20+%20%22;color:#fff;padding:13px%2020px;%22+%20%22border-radius:10px;font:600%2014px/1.5%20-apple-system,BlinkMacSystemFont,sans-serif;%22+%20%22box-shadow:0%208px%2028px%20rgba(0,0,0,.3);max-width:88vw;text-align:center%22;d.textContent%20=%20%EA%B8%80;document.body.appendChild(d);return%20d;};var%20%EC%AA%BD%EC%A7%80%20=%20%EC%95%8C%EB%A6%BC(%22%EB%AA%A8%EC%9C%BC%EB%8A%94%20%EC%A4%91%E2%80%A6%22);try{var%20%EB%B0%94%ED%83%95%20=%20location.origin;var%20%EB%96%A0%EC%98%A4%EA%B8%B0%20=%20async%20function(u){try{%20var%20r%20=%20await%20fetch(u,%20{credentials:%22include%22,%20cache:%22no-store%22});return%20r.ok%20?%20await%20r.text()%20:%20%22%22;%20}catch(e){%20return%20%22%22;%20}};var%20html%20=%20await%20%EB%96%A0%EC%98%A4%EA%B8%B0(location.href);if(!html)%20throw%20new%20Error(%22%EC%9D%B4%20%EC%AA%BD%EC%9D%98%20%EC%9B%90%EB%B3%B8%EC%9D%84%20%EB%B0%9B%EC%A7%80%20%EB%AA%BB%ED%96%88%EC%8A%B5%EB%8B%88%EB%8B%A4%22);var%20robots%20=%20await%20%EB%96%A0%EC%98%A4%EA%B8%B0(%EB%B0%94%ED%83%95%20+%20%22/robots.txt%22);var%20smUrl%20=%20(robots.match(/^%5Cs*sitemap%5Cs*:%5Cs*(%5CS+)/im)%20||%20[])[1]%20||%20(%EB%B0%94%ED%83%95%20+%20%22/sitemap.xml%22);var%20sitemap%20=%20await%20%EB%96%A0%EC%98%A4%EA%B8%B0(smUrl);var%20%EB%A0%8C%EB%8D%94%20=%20document.documentElement.outerHTML;var%20%EB%AC%B6%EC%9D%8C%20=%20%22===AEO:URL===%5Cn%22%20+%20location.href+%20%22%5Cn===AEO:ROBOTS===%5Cn%22%20+%20robots+%20%22%5Cn===AEO:SITEMAP===%5Cn%22%20+%20sitemap+%20%22%5Cn===AEO:HTML===%5Cn%22%20+%20html+%20%22%5Cn===AEO:RENDER===%5Cn%22%20+%20%EB%A0%8C%EB%8D%94;var%20%EB%90%A8%20=%20false;try{%20await%20navigator.clipboard.writeText(%EB%AC%B6%EC%9D%8C);%20%EB%90%A8%20=%20true;%20}catch(e){}if(!%EB%90%A8){var%20t%20=%20document.createElement(%22textarea%22);t.value%20=%20%EB%AC%B6%EC%9D%8C;t.style.cssText%20=%20%22position:fixed;left:0;top:0;width:1px;height:1px;opacity:0%22;document.body.appendChild(t);%20t.focus();%20t.select();t.setSelectionRange(0,%20%EB%AC%B6%EC%9D%8C.length);try{%20%EB%90%A8%20=%20document.execCommand(%22copy%22);%20}catch(e){}document.body.removeChild(t);}if(%EB%90%A8){%EC%AA%BD%EC%A7%80.textContent%20=%20%22%EB%B3%B5%EC%82%AC%ED%96%88%EC%8A%B5%EB%8B%88%EB%8B%A4%20(%22%20+%20Math.round(%EB%AC%B6%EC%9D%8C.length/1024)%20+%20%22KB)%20%E2%80%94%20%EA%B3%84%EC%B8%A1%EA%B8%B0%EC%97%90%EC%84%9C%20%E2%80%98%EB%B6%99%EC%97%AC%EB%84%A3%EA%B8%B0%E2%80%99%20%EB%A5%BC%20%EB%88%84%EB%A5%B4%EC%84%B8%EC%9A%94%22;%EC%AA%BD%EC%A7%80.style.background%20=%20%22#1f7a4d%22;}else{%EC%AA%BD%EC%A7%80.textContent%20=%20%22%EB%B3%B5%EC%82%AC%EA%B0%80%20%EB%A7%89%ED%98%94%EC%8A%B5%EB%8B%88%EB%8B%A4.%20%ED%99%94%EB%A9%B4%EC%97%90%20%EB%9D%84%EC%9A%B8%20%ED%85%8C%EB%8B%88%20%EA%B8%B8%EA%B2%8C%20%EB%88%8C%EB%9F%AC%20%EC%A0%84%EC%B2%B4%20%EC%84%A0%ED%83%9D%20%ED%9B%84%20%EB%B3%B5%EC%82%AC%ED%95%98%EC%84%B8%EC%9A%94%22;%EC%AA%BD%EC%A7%80.style.background%20=%20%22#b3261e%22;var%20box%20=%20document.createElement(%22textarea%22);box.value%20=%20%EB%AC%B6%EC%9D%8C;box.style.cssText%20=%20%22position:fixed;left:4vw;top:10vh;width:92vw;height:70vh;z-index:2147483646;%22+%20%22font:12px/1.4%20monospace;padding:10px;border:2px%20solid%20#12254a;border-radius:8px%22;document.body.appendChild(box);%20box.focus();%20box.select();}setTimeout(function(){%20%EC%AA%BD%EC%A7%80.remove();%20},%206000);}catch(e){%EC%AA%BD%EC%A7%80.textContent%20=%20%22%EC%8B%A4%ED%8C%A8:%20%22%20+%20e.message;%EC%AA%BD%EC%A7%80.style.background%20=%20%22#b3261e%22;setTimeout(function(){%20%EC%AA%BD%EC%A7%80.remove();%20},%206000);}})();</textarea>
 <div id="out" class="hide"></div>
 
 <footer>측정은 전부 이 브라우저 안에서 돕니다 · 서버로 가는 것이 없습니다</footer>
@@ -852,28 +884,161 @@ function 그리기(b){
   return out.join("");
 }
 
+/* ── 붙여넣은 것이 무엇인지 가려낸다 ───────────────────── */
+function 가려내기(글){
+  const 조각 = {url:"", html:"", robots:"", sitemap:"", 렌더:""};
+  if(!글 || !글.trim()) return 조각;
+
+  // ① 북마크가 모아 온 묶음이면 그대로 갈라 쓴다
+  if(글.indexOf("===AEO:HTML===") >= 0){
+    const 집 = (이름)=>{
+      const m = 글.match(new RegExp("===AEO:"+이름+"===\\n([\\s\\S]*?)(?=\\n===AEO:|$)"));
+      return m ? m[1].trim() : "";
+    };
+    조각.url = 집("URL"); 조각.robots = 집("ROBOTS");
+    조각.sitemap = 집("SITEMAP"); 조각.html = 집("HTML"); 조각.렌더 = 집("RENDER");
+    return 조각;
+  }
+
+  // ② 손으로 넣은 것 — 무엇인지 알아서 가린다
+  const sm = 글.match(/<\?xml[\s\S]*?<(urlset|sitemapindex)[\s\S]*?<\/\1>|<(urlset|sitemapindex)[\s\S]*?<\/\2>/i);
+  if(sm){ 조각.sitemap = sm[0]; 글 = 글.replace(sm[0], "\n"); }
+
+  const 줄들 = 글.split(/\r?\n/), r줄 = [], 남은 = [];
+  let robots중 = false;
+  for(const 줄 of 줄들){
+    const t = 줄.trim();
+    if(/^user-agent\s*:/i.test(t)) robots중 = true;
+    if(robots중){
+      if(t === "" || /^(user-agent|allow|disallow|sitemap|crawl-delay|host|#)/i.test(t)){
+        r줄.push(줄); continue;
+      }
+      robots중 = false;
+    }
+    남은.push(줄);
+  }
+  if(r줄.some(x=>/^user-agent/i.test(x.trim()))) 조각.robots = r줄.join("\n");
+  글 = 남은.join("\n");
+
+  const 덩이 = [...글.matchAll(/(<!doctype html[\s\S]*?<\/html\s*>)|(<html[\s\S]*?<\/html\s*>)/gi)].map(x=>x[0]);
+  if(덩이.length){
+    조각.html = 덩이[0];
+    if(덩이.length > 1){
+      const 나머지 = 덩이.slice(1).sort((a,b)=>b.length-a.length)[0];
+      if(나머지.length > 조각.html.length) 조각.렌더 = 나머지;
+      else { 조각.렌더 = 조각.html; 조각.html = 나머지; }
+    }
+  } else if(글.trim() && /<[a-z]/i.test(글)) {
+    조각.html = 글;
+  }
+  return 조각;
+}
+
 /* ── 움직임 ─────────────────────────────────────────────── */
 const $=id=>document.getElementById(id);
-function 돌리기(){
-  const html=$("iHtml").value;
-  if(!html.trim()){ alert("원본 HTML 을 넣어 주세요."); $("iHtml").focus(); return; }
-  const b=검사({url:$("iUrl").value, html, robots:$("iRobots").value,
-                sitemap:$("iSitemap").value, render:$("iRender").value});
-  const o=$("out"); o.innerHTML=그리기(b); o.classList.remove("hide");
-  o.scrollIntoView({behavior:"smooth",block:"start"});
+
+function 칩그리기(조각){
+  const 표 = [["원본 HTML", 조각.html, true], ["robots.txt", 조각.robots, false],
+              ["sitemap.xml", 조각.sitemap, false], ["렌더링된 화면", 조각.렌더, false]];
+  $("chips").innerHTML = 표.map(([이름, 값, 꼭])=>
+    값 ? `<span class="chip c-ok">✓ ${이름} ${n(값.length)}자</span>`
+       : `<span class="chip ${꼭?'c-no':'c-mute'}">${꼭?'✕ ':''}${이름} 없음</span>`).join("");
 }
-$("bGo").addEventListener("click",돌리기);
-$("bClear").addEventListener("click",()=>{
-  ["iUrl","iHtml","iRobots","iSitemap","iRender"].forEach(i=>$(i).value="");
+
+function 재기(조각){
+  if(!조각.html){
+    alert("원본 HTML 이 없습니다.\n\n검사할 쪽에서 ‘AEO 채집’ 북마크를 먼저 눌러 주세요.");
+    return false;
+  }
+  if(조각.url && !$("iUrl").value.trim()) $("iUrl").value = 조각.url;
+  칩그리기(조각);
+  const b = 검사({url: $("iUrl").value || 조각.url, html: 조각.html,
+                  robots: 조각.robots, sitemap: 조각.sitemap, render: 조각.렌더});
+  const o = $("out"); o.innerHTML = 그리기(b); o.classList.remove("hide");
+  o.scrollIntoView({behavior:"smooth", block:"start"});
+  return true;
+}
+
+/* 클립보드에서 바로 받기 — 폰에서는 이게 제일 편하다 */
+$("bClip").addEventListener("click", async ()=>{
+  const 단추 = $("bClip"), 본래 = 단추.textContent;
+  try{
+    const 글 = await navigator.clipboard.readText();
+    if(!글 || !글.trim()){ alert("클립보드가 비어 있습니다.\n검사할 쪽에서 ‘AEO 채집’ 북마크를 먼저 누르세요."); return; }
+    const 조각 = 가려내기(글);
+    if(!조각.html){
+      $("manual").classList.remove("hide");
+      $("iPaste").value = 글; 훑기();
+      alert("클립보드에 HTML 이 없습니다. 내용을 아래에 넣어 두었으니 확인해 주세요.");
+      return;
+    }
+    단추.textContent = "읽었습니다"; setTimeout(()=>단추.textContent=본래, 1500);
+    재기(조각);
+  }catch(e){
+    $("manual").classList.remove("hide");
+    alert("브라우저가 클립보드 읽기를 막았습니다.\n아래 칸에 직접 붙여넣어 주세요.");
+    $("iPaste").focus();
+  }
+});
+
+$("bManual").addEventListener("click", ()=>{
+  $("manual").classList.toggle("hide");
+  if(!$("manual").classList.contains("hide")) $("iPaste").focus();
+});
+
+function 훑기(){ 칩그리기(가려내기($("iPaste").value)); }
+$("iPaste").addEventListener("input", 훑기);
+$("bGo").addEventListener("click", ()=>재기(가려내기($("iPaste").value)));
+$("bClear").addEventListener("click", ()=>{
+  $("iUrl").value=""; $("iPaste").value=""; $("chips").innerHTML="";
   $("out").classList.add("hide"); window.scrollTo({top:0,behavior:"smooth"});
 });
 
-/* 예시 — 이 쪽을 열자마자 계기가 무엇을 보여주는지 알 수 있게 */
-const 예시 = {
-  url:"https://example.com/card/detail?code=SAMPLE01",
-  robots:`User-agent: *\nDisallow: /\n\nUser-agent: Googlebot\nAllow: /card/\nDisallow: /login/\n\nUser-agent: Yeti\nAllow: /card/\n\nUser-agent: GPTBot\nAllow: /card/\n\nUser-agent: ClaudeBot\nAllow: /card/\n\nSitemap: https://example.com/sitemap.xml`,
-  sitemap:`<?xml version="1.0"?>\n<urlset>\n<url><loc>https://example.com/</loc></url>\n<url><loc>https://example.com/card/list</loc></url>\n<url><loc>https://example.com/event/list</loc></url>\n</urlset>`,
-  html:`<!doctype html><html lang="ko"><head>
+/* 북마크 코드 */
+$("bBm").addEventListener("click", async ()=>{
+  const 코드 = $("bmSrc").value, 단추 = $("bBm");
+  try{ await navigator.clipboard.writeText(코드); 단추.textContent="복사됐습니다";
+       setTimeout(()=>단추.textContent="북마크 코드 복사", 1800); }
+  catch(e){ $("bmText").classList.remove("hide"); $("bmText").value=코드;
+            $("bmText").focus(); $("bmText").select();
+            단추.textContent="길게 눌러 복사하세요";
+            setTimeout(()=>단추.textContent="북마크 코드 복사", 2500); }
+});
+$("bBmShow").addEventListener("click", ()=>{
+  const t=$("bmText"); t.classList.toggle("hide");
+  if(!t.classList.contains("hide")){ t.value=$("bmSrc").value; t.focus(); t.select(); }
+});
+
+/* 예시 */
+const 예시묶음 = `===AEO:URL===
+https://example.com/card/detail?code=SAMPLE01
+===AEO:ROBOTS===
+User-agent: *
+Disallow: /
+
+User-agent: Googlebot
+Allow: /card/
+Disallow: /login/
+
+User-agent: Yeti
+Allow: /card/
+
+User-agent: GPTBot
+Allow: /card/
+
+User-agent: ClaudeBot
+Allow: /card/
+
+Sitemap: https://example.com/sitemap.xml
+===AEO:SITEMAP===
+<?xml version="1.0"?>
+<urlset>
+<url><loc>https://example.com/</loc></url>
+<url><loc>https://example.com/card/list</loc></url>
+<url><loc>https://example.com/event/list</loc></url>
+</urlset>
+===AEO:HTML===
+<!doctype html><html lang="ko"><head>
 <meta charset="UTF-8">
 <title>상품 상세</title>
 <meta name="description" content="상품 혜택을 확인하세요">
@@ -896,24 +1061,24 @@ const 예시 = {
 benefitList:[{title:"주유 혜택",desc:"전국 주유소에서 리터당 60원 할인됩니다. 월 최대 2만원까지 할인되며 전월 실적 30만원 이상일 때 적용됩니다."},
 {title:"교통 혜택",desc:"버스와 지하철 이용 금액의 10%를 할인해 드립니다. 월 최대 5천원까지 적용되고 전월 실적 조건은 동일합니다."},
 {title:"통신 혜택",desc:"3대 통신사 자동이체 시 월 5천원을 할인해 드립니다. 통신요금 자동납부 등록이 되어 있어야 적용됩니다."}],
-feeTable:"국내전용 연회비는 1만원이고 해외겸용 연회비는 1만 2천원입니다. 가족카드는 연회비가 면제됩니다."}}]}<\/script>
-</body></html>`,
-  render:""
-};
-$("bSample").addEventListener("click",()=>{
-  $("iUrl").value=예시.url; $("iHtml").value=예시.html;
-  $("iRobots").value=예시.robots; $("iSitemap").value=예시.sitemap;
-  $("iRender").value=예시.render; 돌리기();
+feeTable:"국내전용 연회비는 1만원이고 해외겸용 연회비는 1만 2천원입니다."}}]}<\/script>
+</body></html>`;
+$("bSample").addEventListener("click", ()=>{
+  $("manual").classList.remove("hide");
+  $("iPaste").value = 예시묶음; 훑기(); 재기(가려내기(예시묶음));
 });
 
-// 쪽을 열면 예시가 이미 측정되어 있게 한다 (빈 껍데기로 보이지 않도록)
-$("iUrl").value=예시.url; $("iHtml").value=예시.html;
-$("iRobots").value=예시.robots; $("iSitemap").value=예시.sitemap;
-$("out").innerHTML='<div class="note" style="margin:0 0 16px;border-color:var(--probe)">'+
-  '<b style="color:var(--probe)">아래는 예시 데이터로 돌린 결과입니다.</b> '+
-  '실제 쪽을 검사하려면 위 칸의 내용을 지우고 그 쪽의 소스를 넣으세요.</div>'+그리기(검사(예시));
-$("out").classList.remove("hide");
+// 쪽을 열면 예시가 이미 측정되어 있게 한다
+(function(){
+  const 조각 = 가려내기(예시묶음);
+  $("iUrl").value = 조각.url;
+  $("out").innerHTML = '<div class="note" style="margin:0 0 16px;border-color:var(--probe)">'+
+    '<b style="color:var(--probe)">아래는 예시 데이터로 돌린 결과입니다.</b> '+
+    '실제 쪽을 보려면 위 두 단계를 따라 하세요.</div>'+
+    그리기(검사({url:조각.url, html:조각.html, robots:조각.robots,
+                 sitemap:조각.sitemap, render:조각.렌더}));
+  $("out").classList.remove("hide");
+})();
 </script>
 
-</body>
-</html>
+</body></html>
