@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0B0E13">
+<meta name="color-scheme" content="dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AEO 계측기">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMDQiIGZpbGw9IiMwQjBFMTMiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNUFCNEZGIiBzdHJva2Utd2lkdGg9IjIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiPgo8cGF0aCBkPSJNMTUwIDM2MiBBMTUwIDE1MCAwIDAgMSAzNjIgMTUwIi8+CjxwYXRoIGQ9Ik0xOTYgMzYyIEExMDQgMTA0IDAgMCAxIDM2MiAxOTYiIHN0cm9rZT0iIzM1RDZBNCIvPgo8cGF0aCBkPSJNMjQyIDM2MiBBNTggNTggMCAwIDEgMzYyIDI0MiIgc3Ryb2tlPSIjRThBMzNEIi8+CjwvZz4KPGNpcmNsZSBjeD0iMTUwIiBjeT0iMzYyIiByPSIzMCIgZmlsbD0iIzVBQjRGRiIvPgo8L3N2Zz4=">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KPHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMDQiIGZpbGw9IiMwQjBFMTMiLz4KPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNUFCNEZGIiBzdHJva2Utd2lkdGg9IjIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiPgo8cGF0aCBkPSJNMTUwIDM2MiBBMTUwIDE1MCAwIDAgMSAzNjIgMTUwIi8+CjxwYXRoIGQ9Ik0xOTYgMzYyIEExMDQgMTA0IDAgMCAxIDM2MiAxOTYiIHN0cm9rZT0iIzM1RDZBNCIvPgo8cGF0aCBkPSJNMjQyIDM2MiBBNTggNTggMCAwIDEgMzYyIDI0MiIgc3Ryb2tlPSIjRThBMzNEIi8+CjwvZz4KPGNpcmNsZSBjeD0iMTUwIiBjeT0iMzYyIiByPSIzMCIgZmlsbD0iIzVBQjRGRiIvPgo8L3N2Zz4=">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIu2BrOuhpOufrCDqsIDsi5zshLEg6rOE7Lih6riwIiwgInNob3J0X25hbWUiOiAiQUVPIOqzhOy4oeq4sCIsICJkZXNjcmlwdGlvbiI6ICJBSSDtgazroaTrn6zqsIAg7Ju57Y6Y7J207KeA7JeQ7IScIOustOyXh+ydhCDqsIDsoLjqsIDripTsp4Ag7Lih7KCV7ZWp64uI64ukIiwgInN0YXJ0X3VybCI6ICIuLyIsICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLCAiYmFja2dyb3VuZF9jb2xvciI6ICIjMEIwRTEzIiwgInRoZW1lX2NvbG9yIjogIiMwQjBFMTMiLCAibGFuZyI6ICJrbyIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBMU1USWdOVEV5SWo0S1BISmxZM1FnZDJsa2RHZzlJalV4TWlJZ2FHVnBaMmgwUFNJMU1USWlJSEo0UFNJeE1EUWlJR1pwYkd3OUlpTXdRakJGTVRNaUx6NEtQR2NnWm1sc2JEMGlibTl1WlNJZ2MzUnliMnRsUFNJak5VRkNORVpHSWlCemRISnZhMlV0ZDJsa2RHZzlJakl5SWlCemRISnZhMlV0YkdsdVpXTmhjRDBpY205MWJtUWlQZ284Y0dGMGFDQmtQU0pOTVRVd0lETTJNaUJCTVRVd0lERTFNQ0F3SURBZ01TQXpOaklnTVRVd0lpOCtDanh3WVhSb0lHUTlJazB4T1RZZ016WXlJRUV4TURRZ01UQTBJREFnTUNBeElETTJNaUF4T1RZaUlITjBjbTlyWlQwaUl6TTFSRFpCTkNJdlBnbzhjR0YwYUNCa1BTSk5NalF5SURNMk1pQkJOVGdnTlRnZ01DQXdJREVnTXpZeUlESTBNaUlnYzNSeWIydGxQU0lqUlRoQk16TkVJaTgrQ2p3dlp6NEtQR05wY21Oc1pTQmplRDBpTVRVd0lpQmplVDBpTXpZeUlpQnlQU0l6TUNJZ1ptbHNiRDBpSXpWQlFqUkdSaUl2UGdvOEwzTjJaejQ9IiwgInNpemVzIjogIjUxMng1MTIiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIn1dfQ==">
+<style>html{background:#0B0E13}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>크롤러 가시성 계측기</title>
+<style>
+:root{
+  --void:#0B0E13; --panel:#141922; --panel2:#1A212C; --line:#232B37; --line2:#2E3846;
+  --ink:#E8EDF4; --dim:#78859A; --dim2:#525E70;
+  --signal:#35D6A4; --caution:#E8A33D; --block:#F05B5B; --probe:#5AB4FF;
+  --sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,"D2Coding",Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--void);color:var(--ink);font-family:var(--sans);
+  font-weight:400;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px 100px}
+
+/* ── 머리 ── */
+header{border-bottom:1px solid var(--line);margin-bottom:30px}
+header .wrap{padding:34px 24px 26px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--probe);
+  text-transform:uppercase;margin:0 0 10px}
+h1{margin:0 0 10px;font-size:30px;font-weight:600;letter-spacing:-.6px;line-height:1.25;text-wrap:balance}
+.lede{margin:0;max-width:62ch;color:var(--dim);font-size:14.5px}
+.lede b{color:var(--ink);font-weight:500}
+
+/* ── 입력 ── */
+.console{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:26px}
+.console h2{margin:0 0 3px;font-size:15px;font-weight:600}
+.console .sub{margin:0 0 16px;font-size:12.5px;color:var(--dim)}
+.fld{margin-bottom:13px}
+.fld label{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+  color:var(--dim);text-transform:uppercase;margin-bottom:6px}
+.fld label .opt{color:var(--dim2);text-transform:none;letter-spacing:0;font-family:var(--sans)}
+input[type=text],textarea{width:100%;background:var(--void);color:var(--ink);
+  border:1px solid var(--line2);border-radius:9px;padding:10px 12px;font-family:var(--mono);
+  font-size:12.5px;line-height:1.6;resize:vertical}
+input[type=text]{font-size:13px}
+textarea{min-height:90px}
+textarea.big{min-height:150px}
+input:focus,textarea:focus{outline:2px solid var(--probe);outline-offset:-1px;border-color:transparent}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:780px){.grid2{grid-template-columns:1fr}}
+.acts{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px}
+button{font-family:var(--sans);font-size:13.5px;font-weight:600;border-radius:9px;
+  padding:10px 22px;cursor:pointer;border:1px solid transparent}
+button.go{background:var(--probe);color:#08121C}
+button.go:hover{background:#7CC7FF}
+button.ghost{background:transparent;color:var(--dim);border-color:var(--line2)}
+button.ghost:hover{color:var(--ink);border-color:var(--dim2)}
+button:focus-visible{outline:2px solid var(--probe);outline-offset:2px}
+details.how{margin-top:14px;border-top:1px solid var(--line);padding-top:13px}
+details.how summary{cursor:pointer;font-size:12.5px;color:var(--probe);font-weight:500}
+details.how .body{font-size:12.5px;color:var(--dim);margin-top:10px}
+code{font-family:var(--mono);font-size:12px;background:var(--panel2);border:1px solid var(--line);
+  padding:1.5px 6px;border-radius:5px;color:var(--probe);word-break:break-all}
+
+/* ── 게이트 체인 ── */
+.chain{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:24px}
+@media(max-width:860px){.chain{grid-template-columns:1fr 1fr}}
+.gate{position:relative;background:var(--panel);border:1px solid var(--line);padding:17px 16px 15px}
+.gate:first-child{border-radius:13px 0 0 13px}
+.gate:last-child{border-radius:0 13px 13px 0}
+.gate+.gate{border-left:0}
+@media(max-width:860px){.gate{border-radius:13px!important;border-left:1px solid var(--line)!important;margin-bottom:10px}}
+.gate.dead{opacity:.34}
+.gate .lamp{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:7px;vertical-align:1px}
+.gate .no{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--dim2)}
+.gate h3{margin:7px 0 2px;font-size:14.5px;font-weight:600}
+.gate .q{margin:0 0 11px;font-size:11.5px;color:var(--dim2)}
+.gate .verdict{font-size:13px;font-weight:600;margin-bottom:5px;line-height:1.45}
+.gate .why{font-size:11.5px;color:var(--dim);line-height:1.55}
+.pass .lamp{background:var(--signal);box-shadow:0 0 10px rgba(53,214,164,.55)}
+.warn .lamp{background:var(--caution);box-shadow:0 0 10px rgba(232,163,61,.5)}
+.fail .lamp{background:var(--block);box-shadow:0 0 10px rgba(240,91,91,.55)}
+.pass .verdict{color:var(--signal)} .warn .verdict{color:var(--caution)} .fail .verdict{color:var(--block)}
+.gate::after{content:"";position:absolute;right:-1px;top:50%;width:1px;height:46px;
+  margin-top:-23px;background:var(--line2)}
+.gate:last-child::after{display:none}
+@media(max-width:860px){.gate::after{display:none}}
+
+/* ── 총평 ── */
+.summary{display:flex;gap:26px;align-items:center;background:var(--panel);border:1px solid var(--line);
+  border-radius:13px;padding:20px 24px;margin-bottom:24px;flex-wrap:wrap}
+.summary .score{font-family:var(--mono);font-size:44px;font-weight:600;line-height:1;
+  letter-spacing:-2px;font-variant-numeric:tabular-nums}
+.summary .score small{font-size:14px;color:var(--dim2);letter-spacing:0}
+.summary .verdict{font-size:16px;font-weight:600;flex:1;min-width:240px;line-height:1.5}
+.summary .src{font-family:var(--mono);font-size:11.5px;color:var(--dim2);margin-top:5px;word-break:break-all}
+
+/* ── 지층 막대 ── */
+.strata{height:46px;display:flex;border-radius:9px;overflow:hidden;border:1px solid var(--line2);margin:6px 0 12px}
+.strata .seg{display:flex;align-items:center;justify-content:center;font-family:var(--mono);
+  font-size:11.5px;font-weight:600;min-width:2px;white-space:nowrap;overflow:hidden}
+.strata .read{background:var(--probe);color:#08121C}
+.strata .hid{color:var(--caution);
+  background:repeating-linear-gradient(135deg,#2A2113 0 7px,#1D1810 7px 14px)}
+
+/* ── 계기판 ── */
+section.panel{background:var(--panel);border:1px solid var(--line);border-radius:13px;
+  padding:22px 24px;margin-bottom:16px}
+section.panel>h2{margin:0 0 3px;font-size:15.5px;font-weight:600;letter-spacing:-.2px}
+section.panel>.sub{margin:0 0 16px;font-size:12.5px;color:var(--dim);max-width:72ch}
+.tw{overflow-x:auto;margin:0 -4px}
+table{width:100%;border-collapse:collapse;font-size:12.8px}
+th{text-align:left;padding:7px 10px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dim2);border-bottom:1px solid var(--line2);font-weight:500;white-space:nowrap}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55}
+tr:last-child td{border-bottom:0}
+td.k{color:var(--dim);width:170px;font-size:12px}
+td.num{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.chip{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:500;
+  padding:1.5px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.c-ok{color:var(--signal)} .c-no{color:var(--block)} .c-mid{color:var(--caution)} .c-mute{color:var(--dim2)}
+.bar{background:var(--line);border-radius:3px;height:14px;min-width:30px}
+.bar i{display:block;height:100%;border-radius:3px;background:var(--probe)}
+.bar i.thin{background:var(--block)}
+pre.dump{background:var(--void);border:1px solid var(--line);border-radius:9px;padding:14px;
+  overflow:auto;max-height:340px;font-family:var(--mono);font-size:11.5px;line-height:1.75;
+  white-space:pre-wrap;word-break:break-word;color:#C4CEDB;margin:0}
+.finding{border-left:2px solid;border-radius:0 9px 9px 0;padding:13px 16px;margin-bottom:10px;
+  background:var(--panel2)}
+.finding.big{border-color:var(--block)} .finding.mid{border-color:var(--caution)}
+.finding.small{border-color:var(--dim2)}
+.finding .t{font-weight:600;font-size:13.5px;margin-bottom:4px}
+.finding.big .t{color:var(--block)} .finding.mid .t{color:var(--caution)} .finding.small .t{color:var(--dim)}
+.finding .d{font-size:12.5px;color:var(--ink)}
+.finding .m{font-size:12.5px;color:var(--dim);margin-top:4px}
+.finding .m b{color:var(--ink);font-weight:500}
+.empty{color:var(--dim2);font-size:12.5px;padding:10px 0}
+.note{background:var(--panel2);border:1px solid var(--line2);border-radius:9px;padding:12px 14px;
+  font-size:12.3px;color:var(--dim);margin-top:13px}
+.note b{color:var(--ink);font-weight:500}
+footer{border-top:1px solid var(--line);margin-top:34px;padding:22px 0 0;
+  font-size:12px;color:var(--dim2);text-align:center}
+.hide{display:none!important}
+
+/* ── 휴대폰 ── */
+@media(max-width:620px){
+  .wrap{padding:0 15px 70px}
+  header .wrap{padding:24px 15px 20px}
+  h1{font-size:23px}
+  .lede{font-size:13.5px}
+  .console{padding:16px;border-radius:12px}
+  .summary{padding:17px 18px;gap:16px}
+  .summary .score{font-size:36px}
+  .summary .verdict{font-size:14.5px;min-width:0}
+  section.panel{padding:17px 16px;border-radius:12px}
+  section.panel>h2{font-size:14.5px}
+  /* 표는 가로로 밀어서 본다 — 쪽 전체가 옆으로 밀리지 않게 */
+  .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:0 16px}
+  .tw table{min-width:560px}
+  td.k{width:120px}
+  .strata{height:40px}
+  .gate{padding:14px 15px}
+  pre.dump{font-size:11px;max-height:260px}
+  textarea{min-height:76px} textarea.big{min-height:120px}
+  button{flex:1;min-width:92px}
+}
+/* 설치해서 전체화면으로 띄웠을 때 — 아이폰 노치 아래로 내려 준다 */
+@media(display-mode:standalone){
+  header .wrap{padding-top:max(26px,env(safe-area-inset-top))}
+  .wrap{padding-left:max(15px,env(safe-area-inset-left));
+        padding-right:max(15px,env(safe-area-inset-right))}
+}
+</style>
+
+<header><div class="wrap">
+<p class="eyebrow">AEO · GEO Diagnostics</p>
+<h1>크롤러 가시성 계측기</h1>
+<p class="lede">AI 에이전트는 <b>자바스크립트를 실행하지 않습니다.</b> 그래서 사람이 보는 화면과
+봇이 가져가는 내용이 다릅니다. 이 계측기는 <b>서버가 내려준 원본 HTML</b>을 기준으로
+접근 · 발견 · 수신 · 식별 네 단계를 측정합니다.</p>
+</div></header>
+
+<div class="wrap">
+
+<div class="console">
+  <h2>측정값 넣기</h2>
+  <p class="sub">이 쪽은 브라우저 안에서만 돕니다. 바깥으로 주소를 부를 수 없어 <b>소스를 직접 넣습니다.</b>
+  넣은 내용은 어디에도 올라가지 않습니다.</p>
+
+  <div class="fld">
+    <label for="iUrl">검사할 주소 <span class="opt">— canonical·사이트맵 대조에 씁니다</span></label>
+    <input id="iUrl" type="text" placeholder="https://www.example.com/path?code=ABC123">
+  </div>
+
+  <div class="fld">
+    <label for="iHtml">원본 HTML <span class="opt">— 반드시 필요합니다</span></label>
+    <textarea id="iHtml" class="big" placeholder="여기에 붙여넣으세요"></textarea>
+  </div>
+
+  <div class="grid2">
+    <div class="fld">
+      <label for="iRobots">robots.txt <span class="opt">— 선택</span></label>
+      <textarea id="iRobots" placeholder="User-agent: *&#10;Disallow: /"></textarea>
+    </div>
+    <div class="fld">
+      <label for="iSitemap">sitemap.xml <span class="opt">— 선택</span></label>
+      <textarea id="iSitemap" placeholder="&lt;urlset&gt;&lt;url&gt;&lt;loc&gt;...&lt;/loc&gt;&lt;/url&gt;&lt;/urlset&gt;"></textarea>
+    </div>
+  </div>
+
+  <div class="fld">
+    <label for="iRender">브라우저가 그린 HTML <span class="opt">— 선택 · 넣으면 서버/클라이언트 생성을 가릅니다</span></label>
+    <textarea id="iRender" placeholder="개발자도구 콘솔에서 copy(document.documentElement.outerHTML)"></textarea>
+  </div>
+
+  <div class="acts">
+    <button class="go" id="bGo">측정</button>
+    <button class="ghost" id="bSample">예시 넣기</button>
+    <button class="ghost" id="bClear">비우기</button>
+  </div>
+
+  <details class="how">
+    <summary>소스를 어떻게 가져오나</summary>
+    <div class="body">
+      <p style="margin:0 0 9px"><b style="color:var(--ink)">원본 HTML</b> — 봇이 받는 것과 같아야 하므로
+      <b style="color:var(--ink)">브라우저로 그린 화면이 아니라 서버 응답</b>을 가져옵니다.</p>
+      <p style="margin:0 0 6px">터미널에서 —</p>
+      <p style="margin:0 0 9px"><code>curl -sL -A "Mozilla/5.0" "주소" | pbcopy</code></p>
+      <p style="margin:0 0 9px">또는 브라우저 주소창에 <code>view-source:주소</code> 를 넣고 전체 복사.</p>
+      <p style="margin:0 0 6px"><b style="color:var(--ink)">robots.txt · sitemap.xml</b> —
+      <code>도메인/robots.txt</code>, <code>도메인/sitemap.xml</code> 을 열어 복사.</p>
+      <p style="margin:9px 0 0"><b style="color:var(--ink)">브라우저가 그린 HTML</b> — 그 쪽을 열고
+      개발자도구 콘솔에 <code>copy(document.documentElement.outerHTML)</code>.</p>
+    </div>
+  </details>
+</div>
+
+<div id="out" class="hide"></div>
+
+<footer>측정은 전부 이 브라우저 안에서 돕니다 · 서버로 가는 것이 없습니다</footer>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   분석 엔진 — 파이썬 판(분석.py)과 같은 규칙을 그대로 옮긴 것
+   AI 에이전트는 JS 를 실행하지 않는다. 그래서 '봇이 보는 것' 의 정답은
+   서버가 내려준 원본 HTML 이다. 브라우저로 그린 화면은 '사람이 보는 것' 이고,
+   둘의 차이가 곧 문제의 크기다.
+   ═══════════════════════════════════════════════════════════════ */
+
+const BOTS = [
+  ["Googlebot","검색","구글 검색 노출"],
+  ["Yeti","검색","네이버 검색 노출"],
+  ["Bingbot","검색","빙 검색 · 코파일럿 인용의 바탕"],
+  ["Applebot","검색","애플 시리 · 스포트라이트"],
+  ["OAI-SearchBot","인용","ChatGPT 검색 인용"],
+  ["ChatGPT-User","실시간","ChatGPT 가 질문 시점에 직접 방문"],
+  ["Claude-SearchBot","인용","Claude 검색 인용"],
+  ["Claude-User","실시간","Claude 가 질문 시점에 직접 방문"],
+  ["PerplexityBot","인용","Perplexity 인용"],
+  ["Perplexity-User","실시간","Perplexity 가 질문 시점에 직접 방문"],
+  ["GPTBot","학습","OpenAI 학습용"],
+  ["ClaudeBot","학습","Anthropic 학습용"],
+  ["Google-Extended","학습","구글 제미나이 학습용"],
+  ["Applebot-Extended","학습","애플 학습용"],
+  ["meta-externalagent","학습","메타 학습용"],
+  ["Amazonbot","학습","아마존"],
+  ["CCBot","학습","커먼크롤 — 여러 모델의 바탕 자료"],
+  ["Bytespider","학습","바이트댄스"],
+];
+const 비었음 = 300, 얕음 = 700;
+
+const esc = s => String(s==null?"":s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const 정리 = s => s.replace(/<[^>]+>/g," ")
+  .replace(/&nbsp;/g," ").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">")
+  .replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&[a-zA-Z#0-9]+;/g," ")
+  .replace(/\s+/g," ").trim();
+const 글자수 = s => s.replace(/\s/g,"").length;
+const n = x => x.toLocaleString("ko-KR");
+
+function 속성(tag,name){
+  let m = tag.match(new RegExp('\\b'+name+'\\s*=\\s*"([^"]*)"','i')); if(m) return m[1];
+  m = tag.match(new RegExp("\\b"+name+"\\s*=\\s*'([^']*)'","i")); if(m) return m[1];
+  m = tag.match(new RegExp('\\b'+name+'\\s*=\\s*([^\\s>]+)','i')); return m?m[1]:null;
+}
+
+/* ── robots.txt ─────────────────────────────────────────── */
+function robots해석(원문){
+  const 묶음={}, 사이트맵=[]; let 현재=[], 직전이름=false;
+  for(let 줄 of 원문.split(/\r?\n/)){
+    줄 = 줄.split("#")[0].trim(); if(!줄||!줄.includes(":")) continue;
+    const i=줄.indexOf(":"), 키=줄.slice(0,i).trim().toLowerCase(), 값=줄.slice(i+1).trim();
+    if(키==="user-agent"){
+      if(!직전이름) 현재=[];
+      현재.push(값);
+      현재.forEach(x=>{ if(!묶음[x]) 묶음[x]={allow:[],disallow:[]}; });
+      직전이름=true; continue;
+    }
+    직전이름=false;
+    if(키==="sitemap") 사이트맵.push(값);
+    else if((키==="allow"||키==="disallow") && 현재.length)
+      현재.forEach(x=>묶음[x][키].push(값));
+  }
+  return {묶음,사이트맵};
+}
+function 맞나(규칙,경로){
+  if(!규칙) return false;
+  let b = 규칙.replace(/[.+^${}()|[\]\\]/g,"\\$&").replace(/\*/g,".*");
+  if(b.endsWith("\\$")) b = b.slice(0,-2)+"$";
+  try { return new RegExp("^"+b).test(경로); } catch(e){ return false; }
+}
+function 봇판정(묶음,봇,경로){
+  let 쓸 = Object.keys(묶음).find(k=>k.toLowerCase()===봇.toLowerCase());
+  const 적힘 = !!쓸;
+  if(!쓸) 쓸 = Object.keys(묶음).find(k=>k==="*");
+  if(!쓸) return {허용:true,적힘,까닭:"규칙 없음 — 기본 허용"};
+  const R=묶음[쓸]; let 이긴=null,길이=-1,종류=null;
+  for(const t of ["allow","disallow"])
+    for(const r of R[t])
+      if(맞나(r,경로)){
+        if(r.length>길이 || (r.length===길이 && t==="allow")){ 이긴=r;길이=r.length;종류=t; }
+      }
+  if(이긴===null){
+    const 전부막음 = R.disallow.includes("/");
+    return {허용:!전부막음, 적힘,
+      까닭: 전부막음 ? "Disallow: / 에 걸림 (허용 목록 밖)" : "맞는 규칙 없음 — 허용"};
+  }
+  return {허용:종류==="allow", 적힘, 까닭:(종류==="allow"?"Allow: ":"Disallow: ")+이긴};
+}
+
+/* ── HTML 뜯어보기 ───────────────────────────────────────── */
+function 본문글자(html){
+  let m = html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i);
+  let 몸 = m ? m[1] : html;
+  몸 = 몸.replace(/<(script|style|noscript|template|svg)\b[^>]*>[\s\S]*?<\/\1>/gi," ")
+         .replace(/<!--[\s\S]*?-->/g," ");
+  return 정리(몸);
+}
+function 숨은글자(html){
+  const 덩이=[];
+  let re=/<script[^>]*type\s*=\s*["']application\/json["'][^>]*>([\s\S]*?)<\/script>/gi,m;
+  while((m=re.exec(html))) 덩이.push(m[1]);
+  re=/<script[^>]*>([\s\S]*?)<\/script>/gi;
+  while((m=re.exec(html))){
+    const a=m[1];
+    if(a.includes("__NUXT__")||a.includes("__NEXT_DATA__")||a.includes("__INITIAL_STATE__")
+      ||a.includes("__APOLLO_STATE__")||a.includes("window.__")) 덩이.push(a);
+  }
+  const 글=[];
+  for(const d of 덩이){
+    const r=/"((?:[^"\\]|\\.){2,})"/g; let x;
+    while((x=r.exec(d))){
+      let s=x[1];
+      try{ s=JSON.parse('"'+s+'"'); }
+      catch(e){ s=s.replace(/\\"/g,'"').replace(/\\n/g," ").replace(/\\\//g,"/"); }
+      if(/^(https?:|\/|data:|#|[A-Za-z0-9_\-.]+$)/.test(s)) continue;
+      if(/[가-힣]/.test(s) || s.replace(/\s/g,"").length>=12) 글.push(정리(s));
+    }
+  }
+  return 글.join(" ");
+}
+function 렌더방식(html){
+  const 표=[];
+  if(html.includes("data-server-rendered")) 표.push("Nuxt/Vue SSR");
+  if(html.includes("__NUXT__")) 표.push("Nuxt");
+  if(html.includes("__NEXT_DATA__")) 표.push("Next.js");
+  if(/<div[^>]+id=["'](root|app|__next)["']/i.test(html)) 표.push("SPA 뿌리 div");
+  if(/ng-version|ng-app/i.test(html)) 표.push("Angular");
+  if(/<!--\s*\/[^>]*\.jsp\s*-->/i.test(html)) 표.push("JSP");
+  if(/wp-content|wordpress/i.test(html)) 표.push("WordPress");
+  return 표;
+}
+function 머리메타(html){
+  const hm = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i);
+  const 머리 = hm ? hm[1] : html.slice(0,40000);
+  const 메타들 = 머리.match(/<meta\b[^>]*>/gi) || [];
+  const r={표준:{},og:{},twitter:{},비표준og:{},기타:{}};
+  for(const t of 메타들){
+    const 이름=(속성(t,"name")||"").trim(), 속=(속성(t,"property")||"").trim(), 값=속성(t,"content");
+    if(속.toLowerCase().startsWith("og:")) r.og[속.toLowerCase()]=값;
+    else if(이름.toLowerCase().startsWith("og:")) r.비표준og[이름.toLowerCase()]=값;
+    else if(이름.toLowerCase().startsWith("twitter:")) r.twitter[이름.toLowerCase()]=값;
+    else if(["description","keywords","robots","author","viewport","referrer","theme-color"]
+            .includes(이름.toLowerCase())) r.표준[이름.toLowerCase()]=값;
+    else if(이름) r.기타[이름.toLowerCase()]=값;
+  }
+  const t=머리.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  r.title = t ? 정리(t[1]) : null;
+  r.canonical = (머리.match(/<link\b[^>]*rel\s*=\s*["']?canonical["']?[^>]*>/gi)||[])
+                  .map(c=>속성(c,"href"));
+  r.hreflang = (머리.match(/<link\b[^>]*hreflang[^>]*>/gi)||[])
+                  .map(c=>[속성(c,"hreflang"),속성(c,"href")]);
+  r.charset = /<meta[^>]*charset/i.test(머리);
+  const L=html.match(/<html\b[^>]*\blang\s*=\s*["']?([A-Za-z\-]+)/i);
+  r.lang = L?L[1]:null;
+  return r;
+}
+function 구조화데이터(html){
+  const 묶음=[];
+  const re=/<script[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  let m,i=0;
+  while((m=re.exec(html))){
+    i++;
+    const b=m[1].trim(), 항={번호:i,글자수:b.length,유형:[],오류:null};
+    try{
+      const v=JSON.parse(b); const 쌓=[v];
+      while(쌓.length){
+        const x=쌓.pop();
+        if(Array.isArray(x)) 쌓.push(...x);
+        else if(x && typeof x==="object"){
+          if(x["@type"]) 항.유형.push(...[].concat(x["@type"]));
+          쌓.push(...Object.values(x));
+        }
+      }
+    }catch(e){
+      항.오류="JSON 형식 오류";
+      항.유형=[...b.matchAll(/"@type"\s*:\s*"([^"]+)"/g)].map(z=>z[1]);
+    }
+    묶음.push(항);
+  }
+  return {jsonld:묶음,
+    microdata:(html.match(/\bitemscope\b/gi)||[]).length,
+    rdfa:(html.match(/\bvocab\s*=|typeof\s*=/gi)||[]).length};
+}
+function 머리글(html){
+  const m=html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i);
+  let 몸=m?m[1]:html;
+  몸=몸.replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi," ");
+  const r={};
+  for(const h of ["h1","h2","h3","h4"]){
+    r[h]=[...몸.matchAll(new RegExp("<"+h+"\\b[^>]*>([\\s\\S]*?)</"+h+">","gi"))]
+          .map(x=>정리(x[1]).slice(0,70));
+  }
+  return r;
+}
+function 본문구조(html){
+  const m=html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i);
+  const 몸=m?m[1]:html;
+  const 그림=몸.match(/<img\b[^>]*>/gi)||[];
+  const 주요=몸.match(/<main\b[^>]*>[\s\S]*?<\/main>/i);
+  return {
+    main:!!주요, main_글자:주요?글자수(본문글자(주요[0])):0,
+    article:/<article\b/i.test(몸),
+    table:(몸.match(/<table\b/gi)||[]).length,
+    img:그림.length,
+    img_alt없음:그림.filter(i=>!((속성(i,"alt")||"").trim())).length,
+    a:(몸.match(/<a\b[^>]*href/gi)||[]).length,
+    noscript:(html.match(/<noscript\b/gi)||[]).length,
+    접힘:(몸.match(/class="[^"]*(accordion|acco|tab-|tabs|toggle|collapse|modal)[^"]*"/gi)||[]).length,
+    iframe:(몸.match(/<iframe\b/gi)||[]).length,
+  };
+}
+function 본문덩이(html){
+  const m=html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i);
+  let 몸=m?m[1]:html;
+  몸=몸.replace(/<(script|style|noscript|template|svg)\b[^>]*>[\s\S]*?<\/\1>/gi," ")
+       .replace(/<!--[\s\S]*?-->/g," ");
+  const 경계=[...몸.matchAll(/<(h[1-3])\b[^>]*>([\s\S]*?)<\/\1>/gi)]
+    .map(x=>({자리:x.index,급:x[1].toLowerCase(),제목:정리(x[2]).slice(0,70)}));
+  if(!경계.length){ const g=정리(몸); return [{제목:"(머리글 없음 — 쪽 전체)",급:"-",글자수:글자수(g)}]; }
+  const out=[];
+  const 앞=정리(몸.slice(0,경계[0].자리));
+  if(글자수(앞)) out.push({제목:"(첫 머리글 앞)",급:"-",글자수:글자수(앞)});
+  경계.forEach((b,i)=>{
+    const 끝 = i+1<경계.length ? 경계[i+1].자리 : 몸.length;
+    const g = 정리(몸.slice(b.자리,끝));
+    out.push({제목:b.제목||"(제목 비어 있음)",급:b.급,글자수:글자수(g)});
+  });
+  return out;
+}
+</script>
+
+<script>
+/* ── 종합 검사 ───────────────────────────────────────────── */
+function 검사(입력){
+  const b={주소:입력.url.trim(), html:입력.html};
+  let 경로="/";
+  try{ const u=new URL(b.주소); 경로=u.pathname+(u.search||""); b.도메인=u.host; }
+  catch(e){ b.도메인=null; }
+  b.경로=경로;
+
+  // ① 접근
+  const rb = 입력.robots.trim();
+  const {묶음,사이트맵} = rb ? robots해석(rb) : {묶음:{},사이트맵:[]};
+  b.robots = {있음:!!rb, 묶음수:Object.keys(묶음).length, 사이트맵줄:사이트맵,
+    전체막음:(묶음["*"]&&묶음["*"].disallow.includes("/"))||false, 봇표:[]};
+  for(const [이름,쓰임,설명] of BOTS){
+    const r = rb ? 봇판정(묶음,이름,경로) : {허용:true,적힘:false,까닭:"robots.txt 를 넣지 않음"};
+    b.robots.봇표.push({봇:이름,쓰임,설명,...r});
+  }
+
+  // ② 발견
+  const sm = 입력.sitemap.trim();
+  const 주소들 = sm ? [...sm.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/gi)].map(x=>x[1]) : [];
+  const 본 = (b.주소||"").replace(/\/$/,"");
+  b.사이트맵 = {있음:!!sm, 전체수:주소들.length,
+    인덱스:/\<sitemapindex/i.test(sm),
+    들어있나: !!본 && 주소들.some(u=>u.replace(/\/$/,"")===본)};
+
+  // ③ 수신
+  const 봇글=본문글자(b.html), 숨글=숨은글자(b.html);
+  b.렌더방식=렌더방식(b.html);
+  b.글자={봇이읽는글자:글자수(봇글), 숨은글자:글자수(숨글),
+    합계:글자수(봇글)+글자수(숨글),
+    봇이읽는비율:Math.round(글자수(봇글)/Math.max(글자수(봇글)+글자수(숨글),1)*1000)/10,
+    본문전체:봇글, 숨은글전체:숨글};
+  if(입력.render.trim()){
+    const 사람글=본문글자(입력.render);
+    b.글자.사람이보는글자=글자수(사람글);
+    b.글자.붙여넣기비율=Math.round(글자수(봇글)/Math.max(글자수(사람글),1)*1000)/10;
+  }
+
+  // ④ 식별
+  b.메타=머리메타(b.html);
+  b.구조화=구조화데이터(b.html);
+  if(입력.render.trim()){
+    const rs=구조화데이터(입력.render);
+    b.구조화.렌더jsonld수=rs.jsonld.length;
+    b.구조화.클라이언트에서생성 = rs.jsonld.length > b.구조화.jsonld.length;
+  }
+  b.머리글=머리글(b.html);
+  b.구조=본문구조(b.html);
+  b.본문덩이=본문덩이(b.html);
+
+  b.판정=판정하기(b);
+  b.짚을것=짚어주기(b);
+  return b;
+}
+
+function 판정하기(b){
+  const 단계=[];
+  // ① 접근
+  const 인용봇=b.robots.봇표.filter(x=>x.쓰임==="인용"||x.쓰임==="실시간");
+  const 열린=인용봇.filter(x=>x.허용);
+  let s;
+  if(!b.robots.있음) s=["주의","robots.txt 를 넣지 않음","넣으면 봇별 허용 여부를 정확히 가립니다"];
+  else if(!열린.length) s=["실패",`AI 인용·실시간 봇 ${인용봇.length}종이 모두 막혀 있음`,
+    "이 쪽은 AI 답변에 인용될 기회 자체가 없습니다. robots.txt 에 봇 이름을 추가해야 합니다"];
+  else if(열린.length<인용봇.length) s=["주의",
+    `인용·실시간 봇 ${열린.length}/${인용봇.length}종만 허용`,
+    "막힌 봇: "+인용봇.filter(x=>!x.허용).map(x=>x.봇).slice(0,6).join(", ")];
+  else s=["통과",`인용·실시간 봇 ${인용봇.length}종 모두 허용`,""];
+  단계.push({단계:"① 접근",무엇:"AI 봇이 들어올 수 있나",등급:s[0],요약:s[1],설명:s[2]});
+
+  // ② 발견
+  const sm=b.사이트맵;
+  if(!sm.있음) s=["주의","사이트맵을 넣지 않음","넣으면 이 주소가 목록에 있는지 가립니다"];
+  else if(sm.들어있나) s=["통과",`사이트맵에 이 주소가 있음 (전체 ${n(sm.전체수)}건)`,""];
+  else if(!b.주소) s=["주의","검사할 주소를 넣지 않아 대조하지 못함",""];
+  else s=["주의",`사이트맵은 있으나 이 주소가 없음 (전체 ${n(sm.전체수)}건)`,
+    "링크를 타고 올 수는 있지만 발견이 늦습니다"];
+  단계.push({단계:"② 발견",무엇:"이 쪽이 있다는 걸 아나",등급:s[0],요약:s[1],설명:s[2]});
+
+  // ③ 수신
+  const g=b.글자;
+  if(g.봇이읽는글자<비었음) s=["실패",`봇이 읽는 글자 ${n(g.봇이읽는글자)}자 — 사실상 빈 쪽`,
+    `화면에는 보여도 서버가 내려준 HTML 에 본문이 없습니다. 스크립트 안에 숨은 글자가 ${n(g.숨은글자)}자 있습니다`];
+  else if(g.봇이읽는글자<얕음) s=["주의",`봇이 읽는 글자 ${n(g.봇이읽는글자)}자 — 분량이 얕음`,
+    "제목·메뉴만 있고 본문이 비었을 수 있습니다"];
+  else if(g.숨은글자>g.봇이읽는글자*0.5) s=["주의",
+    `봇 ${n(g.봇이읽는글자)}자 / 숨은 글자 ${n(g.숨은글자)}자`,
+    `본문의 상당 부분이 스크립트 데이터에만 있습니다. 봇이 읽는 몫은 전체의 ${g.봇이읽는비율}% 입니다`];
+  else s=["통과",`봇이 읽는 글자 ${n(g.봇이읽는글자)}자`,""];
+  단계.push({단계:"③ 수신",무엇:"서버가 본문을 내려주나",등급:s[0],요약:s[1],설명:s[2]});
+
+  // ④ 식별
+  const m=b.메타, st=b.구조화, 흠=[];
+  if(!m.title) 흠.push("title 없음");
+  else if(m.title.length<10||m.title.length>70) 흠.push(`title 길이 ${m.title.length}자`);
+  const d=m.표준.description;
+  if(!d) 흠.push("description 없음");
+  else if(d.length<50||d.length>160) 흠.push(`description 길이 ${d.length}자`);
+  if(!m.canonical.length) 흠.push("canonical 없음");
+  else if(m.canonical.length>1) 흠.push(`canonical ${m.canonical.length}개`);
+  if(!st.jsonld.length) 흠.push("JSON-LD 없음");
+  const ogN=Object.keys(m.og).length, ogB=Object.keys(m.비표준og).length;
+  if(ogB&&!ogN) 흠.push(`OG 가 비표준 표기 (name= ${ogB}개, property= 0개)`);
+  else if(!ogN) 흠.push("Open Graph 없음");
+  const h1=b.머리글.h1;
+  if(!h1.length) 흠.push("h1 없음"); else if(h1.length>1) 흠.push(`h1 ${h1.length}개`);
+  const 막힘=((m.표준.robots||"").toLowerCase()).includes("noindex");
+  if(막힘) s=["실패","meta robots 에 noindex — 색인 금지 상태","검색·AI 어느 쪽에도 올라가지 않습니다"];
+  else if(!st.jsonld.length&&(!m.title||!d)) s=["실패","제목·설명·구조화 데이터가 모두 부족",흠.join(" · ")];
+  else if(흠.length) s=["주의",`보완할 항목 ${흠.length}개`,흠.join(" · ")];
+  else s=["통과","메타데이터와 구조화 데이터가 갖춰짐",""];
+  단계.push({단계:"④ 식별",무엇:"무슨 쪽인지 기계가 아나",등급:s[0],요약:s[1],설명:s[2]});
+
+  const 점={통과:25,주의:12,실패:0};
+  const 총점=단계.reduce((a,x)=>a+점[x.등급],0);
+  const 막힌=단계.find(x=>x.등급==="실패");
+  const 한줄 = 총점>=85 ? "AI 답변에 인용될 조건을 갖췄습니다"
+    : 막힌 ? `${막힌.단계} 에서 막힙니다 — 뒤 단계를 고쳐도 효과가 나지 않습니다`
+    : "큰 막힘은 없으나 보완할 곳이 있습니다";
+  return {단계,총점,한줄,막힌:막힌?막힌.단계:null};
+}
+
+function 짚어주기(b){
+  const 짚=[], T=b.robots.봇표;
+  const 학습=T.filter(x=>x.쓰임==="학습"&&x.허용).map(x=>x.봇);
+  const 막힘=T.filter(x=>(x.쓰임==="인용"||x.쓰임==="실시간")&&!x.허용).map(x=>x.봇);
+  if(b.robots.있음&&학습.length&&막힘.length) 짚.push({급:"big",
+    제목:"학습용 봇은 열려 있는데 인용용 봇이 막혀 있다",
+    내용:`학습용 ${학습.length}종(${학습.slice(0,4).join(", ")})은 들어올 수 있고, 인용·실시간 ${막힘.length}종(${막힘.slice(0,4).join(", ")})은 막혀 있습니다.`,
+    뜻:"모델 학습에는 우리 내용이 쓰이는데, 정작 답변에 출처로 달리는 길은 닫혀 있습니다. 주는 것은 주고 받을 것은 못 받는 상태입니다."});
+  const g=b.글자;
+  if(g.봇이읽는글자<비었음&&g.숨은글자>1000) 짚.push({급:"big",
+    제목:"화면에는 내용이 있는데 봇에게는 빈 쪽이다",
+    내용:`서버가 내려준 HTML 의 본문은 ${n(g.봇이읽는글자)}자인데, 스크립트 안 JSON 에는 ${n(g.숨은글자)}자가 들어 있습니다.`,
+    뜻:"사람은 멀쩡히 보지만 AI 에이전트는 빈 쪽으로 가져갑니다. 서버 출력(SSR)이 필요합니다."});
+  else if(g.숨은글자>g.봇이읽는글자&&g.봇이읽는글자>=비었음) 짚.push({급:"mid",
+    제목:"본문의 절반 넘는 분량이 스크립트에만 있다",
+    내용:`봇이 읽는 ${n(g.봇이읽는글자)}자보다 숨은 ${n(g.숨은글자)}자가 더 많습니다.`,
+    뜻:"뼈대는 서버가 내려주는데 알맹이(혜택 설명·표 같은 것)는 스크립트에 남아 있는 모양입니다. 접힌 영역을 초기 HTML 에 포함시키면 상당 부분이 풀립니다."});
+  const m=b.메타;
+  if(Object.keys(m.비표준og).length&&!Object.keys(m.og).length) 짚.push({급:"mid",
+    제목:"Open Graph 를 비표준 방식으로 쓰고 있다",
+    내용:`표준은 <meta property="og:...">인데 <meta name="og:...">로 ${Object.keys(m.비표준og).length}개가 적혀 있습니다.`,
+    뜻:"엄격하게 읽는 수집기는 이것을 OG 로 인정하지 않습니다. property= 로 바꾸면 끝나는 일입니다."});
+  const h1=b.머리글.h1;
+  if(h1.length>1&&new Set(h1).size===1) 짚.push({급:"mid",
+    제목:`h1 이 ${h1.length}개인데 모두 같은 글자다`,
+    내용:`h1 내용: ${h1[0]}`,
+    뜻:"쪽 제목이 아니라 사이트 이름(로고)이 h1 으로 들어가 있습니다. AI 는 h1 을 그 쪽의 주제로 봅니다."});
+  if(!m.canonical.length&&b.주소.includes("?")) 짚.push({급:"mid",
+    제목:"주소에 쿼리가 있는데 canonical 이 없다",
+    내용:"추적용 파라미터가 붙은 주소가 각각 다른 쪽으로 색인될 수 있습니다.",
+    뜻:"같은 내용이 여러 주소로 흩어지면 어느 것도 힘을 못 받습니다."});
+  if(b.구조화.클라이언트에서생성) 짚.push({급:"big",
+    제목:"JSON-LD 를 자바스크립트로 만들어 넣고 있다",
+    내용:`원본 HTML 에 ${b.구조화.jsonld.length}개, 브라우저가 그린 화면에 ${b.구조화.렌더jsonld수}개 있습니다.`,
+    뜻:"AI 에이전트는 JS 를 실행하지 않습니다. 이 구조화 데이터는 봇에게 전달되지 않습니다."});
+  if(b.구조.접힘>10&&g.숨은글자>500) 짚.push({급:"small",
+    제목:`접힘 영역이 ${b.구조.접힘}개다`,
+    내용:"아코디언·탭·모달 안의 내용은 펼치기 전에는 HTML 에 없는 경우가 많습니다.",
+    뜻:"혜택 상세처럼 중요한 내용이 접혀 있으면 봇은 제목만 가져갑니다."});
+  if(b.구조.img_alt없음>5) 짚.push({급:"small",
+    제목:`대체 텍스트 없는 이미지가 ${b.구조.img_alt없음}개`,
+    내용:`이미지 ${b.구조.img}개 중 ${b.구조.img_alt없음}개에 alt 가 없습니다.`,
+    뜻:"핵심 정보가 통이미지로만 들어가 있으면 봇은 그 내용을 전혀 알 수 없습니다."});
+  if(b.사이트맵.있음&&!b.사이트맵.들어있나&&b.사이트맵.전체수&&b.주소) 짚.push({급:"small",
+    제목:"사이트맵에 이 주소가 없다",
+    내용:`사이트맵에 ${n(b.사이트맵.전체수)}건이 있는데 이 주소는 빠져 있습니다.`,
+    뜻:"링크를 타고 올 수는 있지만 발견이 늦습니다. 새 상품·이벤트일수록 손해가 큽니다."});
+  const 차례={big:0,mid:1,small:2};
+  return 짚.sort((a,c)=>차례[a.급]-차례[c.급]);
+}
+</script>
+
+<script>
+/* ── 그리기 ─────────────────────────────────────────────── */
+const 반={통과:"pass",주의:"warn",실패:"fail"};
+const chip=(ok,y,no)=>`<span class="chip ${ok?'c-ok':'c-no'}">${ok?y:no}</span>`;
+
+function 그리기(b){
+  const p=b.판정, g=b.글자, out=[];
+
+  // 총평
+  out.push(`<div class="summary">
+    <div><div class="score">${p.총점}<small> / 100</small></div></div>
+    <div class="verdict">${esc(p.한줄)}
+      ${b.주소?`<div class="src">${esc(b.주소)}</div>`:""}</div></div>`);
+
+  // 게이트 체인 — 막힌 뒤는 꺼진다
+  let 꺼짐=false;
+  out.push('<div class="chain">'+p.단계.map(d=>{
+    const 죽 = 꺼짐 ? " dead" : "";
+    if(d.등급==="실패") 꺼짐=true;
+    return `<div class="gate ${반[d.등급]}${죽}">
+      <span class="lamp"></span><span class="no">${esc(d.단계.slice(0,2))}</span>
+      <h3>${esc(d.단계.slice(2).trim())}</h3>
+      <p class="q">${esc(d.무엇)}</p>
+      <div class="verdict">${esc(d.요약)}</div>
+      <div class="why">${esc(d.설명)}</div></div>`;
+  }).join("")+'</div>');
+
+  // 지층 — 봇이 읽는 몫
+  const 봇=g.봇이읽는글자, 숨=g.숨은글자;
+  const 설명 = 숨===0
+    ? (봇 ? "스크립트에 숨은 본문이 없습니다. 서버가 내려준 HTML 이 곧 본문입니다."
+          : "서버가 내려준 HTML 에 본문이 없고, 스크립트 안에도 글자가 없습니다.")
+    : `봇이 가져갈 수 있는 몫은 <b style="color:var(--probe)">${g.봇이읽는비율}%</b> 입니다. 나머지 ${n(숨)}자는 스크립트 안 JSON 에만 있어, 자바스크립트를 실행하지 않는 AI 에이전트는 읽지 못합니다.`;
+  out.push(`<section class="panel"><h2>글자 — 봇이 읽는 몫</h2>
+    <p class="sub">AI 에이전트는 태그 안 글자만 가져갑니다. 빗금 친 쪽이 못 가져가는 부분입니다.</p>
+    <div class="strata">
+      <div class="seg read" style="flex:${Math.max(봇,1)}">${봇>400?n(봇)+"자 · 봇이 읽음":""}</div>
+      <div class="seg hid" style="flex:${Math.max(숨,1)}">${숨>400?n(숨)+"자 · 숨음":""}</div>
+    </div>
+    <p class="sub" style="margin-bottom:14px">${설명}</p>
+    <div class="tw"><table>
+      <tr><td class="k">봇이 읽는 글자</td><td class="num"><b>${n(봇)}자</b></td>
+        <td>script · style 을 뺀 태그 안 텍스트</td></tr>
+      <tr><td class="k">스크립트에 숨은 글자</td><td class="num"><b>${n(숨)}자</b></td>
+        <td>__NUXT__ · __NEXT_DATA__ 등 JSON 안 문자열</td></tr>
+      <tr><td class="k">합계</td><td class="num">${n(g.합계)}자</td>
+        <td>브라우저가 그리면 사람에게 보이는 분량</td></tr>
+      ${g.사람이보는글자!==undefined?`<tr><td class="k">붙여넣은 렌더 화면</td>
+        <td class="num">${n(g.사람이보는글자)}자</td>
+        <td>봇이 받는 몫 <b style="color:var(--probe)">${g.붙여넣기비율}%</b></td></tr>`:""}
+      <tr><td class="k">렌더 방식</td><td class="num">—</td>
+        <td>${esc(b.렌더방식.join(" · ")||"판별 못 함")}</td></tr>
+      <tr><td class="k">main 태그 안 글자</td><td class="num">${n(b.구조.main_글자)}자</td>
+        <td>${b.구조.main?"":"main 태그 없음"}</td></tr>
+    </table></div></section>`);
+
+  // 눈에 띄는 것
+  if(b.짚을것.length){
+    out.push(`<section class="panel"><h2>눈에 띄는 것</h2>
+      <p class="sub">항목 하나씩 봐서는 안 보이고, 묶어서 봐야 드러나는 것들입니다.</p>`+
+      b.짚을것.map(x=>`<div class="finding ${x.급}">
+        <div class="t">${esc(x.제목)}</div>
+        <div class="d">${esc(x.내용)}</div>
+        <div class="m"><b>뜻</b> — ${esc(x.뜻)}</div></div>`).join("")+`</section>`);
+  }
+
+  // ① robots
+  const R=b.robots;
+  out.push(`<section class="panel"><h2>① 접근 — robots.txt</h2>
+    <p class="sub">${R.있음?`User-agent 묶음 ${R.묶음수}개 · Sitemap 줄 ${R.사이트맵줄.length}개
+      ${R.전체막음?' · <b style="color:var(--caution)">봇 이름이 없으면 전체 차단되는 허용 목록 방식</b>':""}`
+      :'robots.txt 를 넣지 않아 전부 허용으로 봤습니다.'}</p>
+    <div class="tw"><table>
+      <tr><th>봇</th><th>쓰임</th><th>robots 에 적힘</th><th>이 쪽 접근</th><th>적용된 규칙</th><th>무엇에 쓰이나</th></tr>
+      ${R.봇표.map(x=>`<tr><td><b>${esc(x.봇)}</b></td>
+        <td><span class="chip ${x.쓰임==="학습"?"c-mute":"c-mid"}">${esc(x.쓰임)}</span></td>
+        <td>${x.적힘?'<span class="chip c-ok">있음</span>':'<span class="chip c-mute">없음</span>'}</td>
+        <td>${x.허용?'<span class="chip c-ok">허용</span>':'<span class="chip c-no">차단</span>'}</td>
+        <td style="font-family:var(--mono);font-size:11.5px;color:var(--dim)">${esc(x.까닭)}</td>
+        <td style="color:var(--dim2);font-size:12px">${esc(x.설명)}</td></tr>`).join("")}
+    </table></div>
+    <div class="note"><b>‘적힘 없음 + 차단’</b> 은 robots.txt 에 그 봇 이름이 없어서 막힌 것입니다.
+    이름을 추가하면 열립니다. <b>인용 · 실시간</b> 봇이 막혀 있으면 AI 답변에 인용될 길이 없습니다.</div>
+  </section>`);
+
+  // ② sitemap
+  const S=b.사이트맵;
+  out.push(`<section class="panel"><h2>② 발견 — sitemap.xml</h2>
+    <p class="sub">목록에 없으면 봇이 쪽의 존재를 스스로 찾아야 합니다.</p>
+    <div class="tw"><table>
+      <tr><td class="k">사이트맵 넣음</td><td>${chip(S.있음,"넣음","안 넣음")}</td></tr>
+      <tr><td class="k">담긴 주소</td><td class="num">${n(S.전체수)}건
+        ${S.인덱스?' <span class="chip c-mute">사이트맵 인덱스</span>':""}</td></tr>
+      <tr><td class="k">이 주소가 목록에 있나</td><td>${
+        !S.있음||!b.주소 ? '<span class="chip c-mute">대조 못 함</span>' : chip(S.들어있나,"있음","없음")}</td></tr>
+    </table></div></section>`);
+
+  // ③ head 메타
+  const m=b.메타, d=m.표준.description;
+  const 메타행=(k,v,평)=>`<tr><td class="k">${esc(k)}</td><td>${v}</td>
+    <td class="num" style="color:var(--dim2)">${esc(평||"")}</td></tr>`;
+  const og=Object.keys(m.og).length?m.og:m.비표준og;
+  out.push(`<section class="panel"><h2>③ 식별 — head 메타데이터</h2>
+    <p class="sub">AI 가 ‘이 쪽이 무엇인가’를 판단할 때 가장 먼저 보는 곳입니다.</p>
+    <div class="tw"><table>
+    ${메타행("title", m.title?`<b>${esc(m.title)}</b>`:'<span class="chip c-no">없음</span>',
+            m.title?m.title.length+"자":"")}
+    ${메타행("description", d?esc(d):'<span class="chip c-no">없음</span>', d?d.length+"자":"")}
+    ${메타행("canonical", m.canonical.length
+        ? m.canonical.map(c=>`<code>${esc(c)}</code>`).join("<br>")
+        : '<span class="chip c-no">없음</span>', m.canonical.length?m.canonical.length+"개":"")}
+    ${메타행("meta robots", m.표준.robots?`<code>${esc(m.표준.robots)}</code>`
+        :'<span class="chip c-mute">없음 — 기본 색인 허용</span>')}
+    ${메타행("html lang", m.lang?`<code>${esc(m.lang)}</code>`:'<span class="chip c-no">없음</span>')}
+    ${메타행("charset", chip(m.charset,"있음","없음"))}
+    ${메타행("Open Graph", Object.keys(og).length
+        ? Object.keys(og).map(k=>`<code>${esc(k)}</code>`).join(" ")
+        : '<span class="chip c-no">없음</span>',
+        Object.keys(m.og).length?"표준 property=":Object.keys(m.비표준og).length?"비표준 name=":"")}
+    ${메타행("Twitter Card", Object.keys(m.twitter).length
+        ? Object.keys(m.twitter).map(k=>`<code>${esc(k)}</code>`).join(" ")
+        : '<span class="chip c-no">없음</span>')}
+    ${메타행("hreflang", m.hreflang.length
+        ? m.hreflang.map(h=>`<code>${esc(h[0])}</code>`).join(" ")
+        : '<span class="chip c-mute">없음</span>')}
+    </table></div></section>`);
+
+  // ④ 구조화
+  const st=b.구조화;
+  let 구본;
+  if(st.jsonld.length){
+    구본=`<div class="tw"><table>${st.jsonld.map(j=>`<tr>
+      <td class="k">#${j.번호}</td>
+      <td>${j.오류?`<span class="chip c-no">${esc(j.오류)}</span>`:'<span class="chip c-ok">형식 정상</span>'}
+        &nbsp; 유형 <b>${esc(j.유형.join(", ")||"없음")}</b></td>
+      <td class="num">${n(j.글자수)}자</td></tr>`).join("")}</table></div>
+      <div class="note"><b>서버가 내려준 HTML 안에 있습니다.</b> AI 에이전트가 그대로 읽습니다.</div>`;
+  } else {
+    구본=`<p class="empty"><span class="chip c-no">JSON-LD 없음</span>
+      &nbsp; 기계가 상품·조직·FAQ 를 구분할 근거가 없습니다.</p>`;
+  }
+  if(st.클라이언트에서생성) 구본+=`<div class="note" style="border-color:var(--block)">
+    <b style="color:var(--block)">원본에는 ${st.jsonld.length}개, 렌더 화면에는 ${st.렌더jsonld수}개.</b>
+    자바스크립트로 만들어 넣고 있다는 뜻이고, AI 에이전트는 이것을 읽지 못합니다.</div>`;
+  out.push(`<section class="panel"><h2>④ 구조화 데이터 — JSON-LD</h2>
+    <p class="sub">서버에서 오는가 · 클라이언트에서 만드는가 가 핵심입니다.</p>
+    ${구본}
+    <div class="tw"><table style="margin-top:12px">
+      <tr><td class="k">microdata</td><td class="num">${st.microdata}개</td><td>itemscope</td></tr>
+      <tr><td class="k">RDFa</td><td class="num">${st.rdfa}개</td><td>vocab · typeof</td></tr>
+    </table></div></section>`);
+
+  // 본문 구조
+  const hh=b.머리글, c=b.구조;
+  out.push(`<section class="panel"><h2>본문 구조</h2>
+    <p class="sub">머리글 계층이 흐트러지면 AI 가 어디가 본문인지 잡지 못합니다.</p>
+    <div class="tw"><table>
+      <tr><td class="k">h1 ${hh.h1.length?`(${hh.h1.length}개)`:""}</td>
+        <td>${esc(hh.h1.join(" / ")||"없음")}</td>
+        <td class="num">${hh.h1.length===1?'<span class="chip c-ok">정상</span>'
+          :hh.h1.length?'<span class="chip c-mid">1개가 표준</span>':'<span class="chip c-no">없음</span>'}</td></tr>
+      <tr><td class="k">h2 (${hh.h2.length}개)</td><td>${esc(hh.h2.slice(0,12).join(" / ")||"없음")}</td><td></td></tr>
+      <tr><td class="k">h3 (${hh.h3.length}개)</td><td>${esc(hh.h3.slice(0,12).join(" / ")||"없음")}</td><td></td></tr>
+      <tr><td class="k">표</td><td class="num">${c.table}개</td><td></td></tr>
+      <tr><td class="k">이미지</td><td class="num">${c.img}개</td>
+        <td>대체 텍스트 없는 것 <b style="color:${c.img_alt없음?'var(--caution)':'var(--ink)'}">${c.img_alt없음}개</b></td></tr>
+      <tr><td class="k">링크</td><td class="num">${c.a}개</td><td></td></tr>
+      <tr><td class="k">접힘 영역</td><td class="num">${c.접힘}개</td>
+        <td>아코디언 · 탭 · 모달 — 안쪽이 초기 HTML 에 없으면 봇이 못 읽습니다</td></tr>
+      <tr><td class="k">iframe</td><td class="num">${c.iframe}개</td><td>안쪽은 별도 쪽으로 취급됩니다</td></tr>
+      <tr><td class="k">noscript</td><td class="num">${c.noscript}개</td><td></td></tr>
+    </table></div></section>`);
+
+  // 본문 덩이
+  const 덩=b.본문덩이, 가장=Math.max(...덩.map(x=>x.글자수),1);
+  out.push(`<section class="panel"><h2>본문을 머리글로 끊어 보기</h2>
+    <p class="sub">전체 글자 수만 보면 어디가 비었는지 알 수 없습니다. 머리글을 경계로 끊으면
+    <b>특정 대목만 비어 있는 것</b>이 보입니다. 빨간 막대는 30자 미만 — 제목만 있고 내용이 없는 곳입니다.</p>
+    <div class="tw"><table>${덩.map(x=>{
+      const 빔=x.글자수<30, w=Math.max(Math.round(x.글자수/가장*100),1);
+      return `<tr><td class="k" style="width:44px;font-family:var(--mono)">${esc(x.급)}</td>
+        <td>${esc(x.제목)}</td>
+        <td style="width:46%"><div class="bar"><i class="${빔?"thin":""}" style="width:${w}%"></i></div></td>
+        <td class="num" style="color:${빔?"var(--block)":"var(--ink)"}"><b>${n(x.글자수)}자</b></td></tr>`;
+    }).join("")}</table></div></section>`);
+
+  // 전문
+  out.push(`<section class="panel"><h2>봇이 받는 본문 — 전문</h2>
+    <p class="sub">서버가 내려준 HTML 에서 태그를 걷어낸 <b>전부</b>입니다. 공백 뺀 ${n(봇)}자.
+    여기가 비면 AI 에게는 빈 쪽입니다.</p>
+    <pre class="dump">${esc(g.본문전체||"(비어 있음 — 봇에게는 빈 쪽입니다)")}</pre></section>
+
+  <section class="panel"><h2>스크립트 안에만 있는 글자 — 전문</h2>
+    <p class="sub">화면에는 그려지지만 <b>봇은 읽지 못하는</b> 부분입니다. 공백 뺀 ${n(숨)}자.</p>
+    <pre class="dump">${esc(g.숨은글전체||"(없음)")}</pre></section>`);
+
+  return out.join("");
+}
+
+/* ── 움직임 ─────────────────────────────────────────────── */
+const $=id=>document.getElementById(id);
+function 돌리기(){
+  const html=$("iHtml").value;
+  if(!html.trim()){ alert("원본 HTML 을 넣어 주세요."); $("iHtml").focus(); return; }
+  const b=검사({url:$("iUrl").value, html, robots:$("iRobots").value,
+                sitemap:$("iSitemap").value, render:$("iRender").value});
+  const o=$("out"); o.innerHTML=그리기(b); o.classList.remove("hide");
+  o.scrollIntoView({behavior:"smooth",block:"start"});
+}
+$("bGo").addEventListener("click",돌리기);
+$("bClear").addEventListener("click",()=>{
+  ["iUrl","iHtml","iRobots","iSitemap","iRender"].forEach(i=>$(i).value="");
+  $("out").classList.add("hide"); window.scrollTo({top:0,behavior:"smooth"});
+});
+
+/* 예시 — 이 쪽을 열자마자 계기가 무엇을 보여주는지 알 수 있게 */
+const 예시 = {
+  url:"https://example.com/card/detail?code=SAMPLE01",
+  robots:`User-agent: *\nDisallow: /\n\nUser-agent: Googlebot\nAllow: /card/\nDisallow: /login/\n\nUser-agent: Yeti\nAllow: /card/\n\nUser-agent: GPTBot\nAllow: /card/\n\nUser-agent: ClaudeBot\nAllow: /card/\n\nSitemap: https://example.com/sitemap.xml`,
+  sitemap:`<?xml version="1.0"?>\n<urlset>\n<url><loc>https://example.com/</loc></url>\n<url><loc>https://example.com/card/list</loc></url>\n<url><loc>https://example.com/event/list</loc></url>\n</urlset>`,
+  html:`<!doctype html><html lang="ko"><head>
+<meta charset="UTF-8">
+<title>상품 상세</title>
+<meta name="description" content="상품 혜택을 확인하세요">
+<meta name="og:title" content="상품 상세">
+<meta name="og:image" content="https://example.com/img/card.jpg">
+</head><body data-server-rendered="true">
+<h1>예시상품</h1>
+<div id="app">
+<h2>기본 정보</h2>
+<p>연회비 국내전용 1만원 / 해외겸용 1만 2천원</p>
+<h2>혜택 안내</h2>
+<div class="accordion"><h3>주유 혜택</h3></div>
+<div class="accordion"><h3>교통 혜택</h3></div>
+<div class="accordion"><h3>통신 혜택</h3></div>
+<img src="/img/plate.png">
+<img src="/img/benefit.png">
+</div>
+<h1>예시상품</h1>
+<script>window.__NUXT__={data:[{card:{name:"예시상품",
+benefitList:[{title:"주유 혜택",desc:"전국 주유소에서 리터당 60원 할인됩니다. 월 최대 2만원까지 할인되며 전월 실적 30만원 이상일 때 적용됩니다."},
+{title:"교통 혜택",desc:"버스와 지하철 이용 금액의 10%를 할인해 드립니다. 월 최대 5천원까지 적용되고 전월 실적 조건은 동일합니다."},
+{title:"통신 혜택",desc:"3대 통신사 자동이체 시 월 5천원을 할인해 드립니다. 통신요금 자동납부 등록이 되어 있어야 적용됩니다."}],
+feeTable:"국내전용 연회비는 1만원이고 해외겸용 연회비는 1만 2천원입니다. 가족카드는 연회비가 면제됩니다."}}]}<\/script>
+</body></html>`,
+  render:""
+};
+$("bSample").addEventListener("click",()=>{
+  $("iUrl").value=예시.url; $("iHtml").value=예시.html;
+  $("iRobots").value=예시.robots; $("iSitemap").value=예시.sitemap;
+  $("iRender").value=예시.render; 돌리기();
+});
+
+// 쪽을 열면 예시가 이미 측정되어 있게 한다 (빈 껍데기로 보이지 않도록)
+$("iUrl").value=예시.url; $("iHtml").value=예시.html;
+$("iRobots").value=예시.robots; $("iSitemap").value=예시.sitemap;
+$("out").innerHTML='<div class="note" style="margin:0 0 16px;border-color:var(--probe)">'+
+  '<b style="color:var(--probe)">아래는 예시 데이터로 돌린 결과입니다.</b> '+
+  '실제 쪽을 검사하려면 위 칸의 내용을 지우고 그 쪽의 소스를 넣으세요.</div>'+그리기(검사(예시));
+$("out").classList.remove("hide");
+</script>
+
+</body>
+</html>
